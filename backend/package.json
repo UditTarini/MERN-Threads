@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/UditTarini/MERN-Threads/issues"
   },
-  "homepage": "https://github.com/UditTarini/MERN-Threads#readme"
+  "homepage": "https://github.com/UditTarini/MERN-Threads#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.21",
+    "nodemon": "^2.0.4",
+    "uuid": "^8.2.0"
+  }
 }
