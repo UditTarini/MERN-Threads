@@ -1,0 +1,19 @@
+{
+  "name": "threads",
+  "version": "1.0.0",
+  "description": "online cloth store",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UditTarini/MERN-Threads.git"
+  },
+  "author": "udit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UditTarini/MERN-Threads/issues"
+  },
+  "homepage": "https://github.com/UditTarini/MERN-Threads#readme"
+}
