@@ -5,8 +5,10 @@ const {
 } = require('express-validator');
 var {
     signout,
-    signup
+    signup,
+    signin
 } = require("../controllers/auth")
+
 
 router.post("/signup", [
     // validation
@@ -21,6 +23,16 @@ router.post("/signup", [
     .matches(/[A-Z]+/).withMessage('must contain a capital letter')
     .matches(/[*@!#%&()^~{}]+/).withMessage('must contain a special char')
 ], signup)
+
+router.post("/signin", [
+    // validation
+    check('email').isEmail().withMessage('not valid'),
+    check('password').isLength({
+        min: 8
+    }).withMessage('field is required')
+
+], signin)
+
 
 router.get("/signout", signout)
 
