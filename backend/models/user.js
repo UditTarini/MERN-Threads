@@ -38,7 +38,7 @@ var user_schema = new Schema({
         type: Number,
         default: 0
     },
-    purchase: {
+    purchases: {
         type: Array,
         default: []
     }
