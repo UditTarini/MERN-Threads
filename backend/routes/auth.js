@@ -6,7 +6,9 @@ const {
 var {
     signout,
     signup,
-    signin
+    signin,
+    isSignedIn,
+
 } = require("../controllers/auth")
 
 
@@ -35,5 +37,11 @@ router.post("/signin", [
 
 
 router.get("/signout", signout)
+
+router.get("/test", isSignedIn, (req, res) => {
+    res.send("protected")
+})
+
+
 
 module.exports = router
