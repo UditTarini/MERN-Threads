@@ -1,47 +1,55 @@
-var express = require("express")
-var router = express.Router()
-const {
-    check
-} = require('express-validator');
-var {
-    signout,
-    signup,
-    signin,
-    isSignedIn,
+var express = require("express");
+var router = express.Router();
+const {check} = require("express-validator");
+var {signout, signup, signin, isSignedIn} = require("../controllers/auth");
 
-} = require("../controllers/auth")
+// ......... routes .........
 
-
-router.post("/signup", [
+// create route
+router.post(
+  "/signup",
+  [
     // validation
-    check('name').isLength({
-        min: 3
-    }).withMessage('must be at least 3 chars long'),
-    check('email').isEmail().withMessage('not valid'),
-    check('password').isLength({
-        min: 8
-    }).withMessage('must be at least 8 chars long')
-    .matches(/\d/).withMessage('must contain a number')
-    .matches(/[A-Z]+/).withMessage('must contain a capital letter')
-    .matches(/[*@!#%&()^~{}]+/).withMessage('must contain a special char')
-], signup)
+    check("name")
+      .isLength({
+        min: 3,
+      })
+      .withMessage("must be at least 3 chars long"),
+    check("email").isEmail().withMessage("not valid"),
+    check("password")
+      .isLength({
+        min: 8,
+      })
+      .withMessage("must be at least 8 chars long")
+      .matches(/\d/)
+      .withMessage("must contain a number")
+      .matches(/[A-Z]+/)
+      .withMessage("must contain a capital letter")
+      .matches(/[*@!#%&()^~{}]+/)
+      .withMessage("must contain a special char"),
+  ],
+  signup
+);
 
-router.post("/signin", [
+router.post(
+  "/signin",
+  [
     // validation
-    check('email').isEmail().withMessage('not valid'),
-    check('password').isLength({
-        min: 8
-    }).withMessage('field is required')
+    check("email").isEmail().withMessage("not valid"),
+    check("password")
+      .isLength({
+        min: 8,
+      })
+      .withMessage("field is required"),
+  ],
+  signin
+);
 
-], signin)
-
-
-router.get("/signout", signout)
+// read route
+router.get("/signout", signout);
 
 router.get("/test", isSignedIn, (req, res) => {
-    res.send("protected")
-})
+  res.send("protected");
+});
 
-
-
-module.exports = router
+module.exports = router;
