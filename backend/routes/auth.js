@@ -11,15 +11,11 @@ router.post(
   [
     // validation
     check("name")
-      .isLength({
-        min: 3,
-      })
+      .isLength({min: 3})
       .withMessage("must be at least 3 chars long"),
     check("email").isEmail().withMessage("not valid"),
     check("password")
-      .isLength({
-        min: 8,
-      })
+      .isLength({min: 8})
       .withMessage("must be at least 8 chars long")
       .matches(/\d/)
       .withMessage("must contain a number")
