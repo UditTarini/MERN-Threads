@@ -1,6 +1,5 @@
 var User = require("../models/user");
 var Order = require("../models/order");
-const user = require("../models/user");
 
 exports.getUserById = (req, res, next, id) => {
   User.findById(id).exec((err, user) => {
