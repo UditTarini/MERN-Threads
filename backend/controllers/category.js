@@ -59,14 +59,14 @@ exports.updateCategory = (req, res) => {
 
 exports.deleteCategory = (req, res) => {
   const category = req.category;
-
+  if (!category) return res.send("No category found");
   category.remove((err, category) => {
     if (err) {
       return res.status(400).json({
         error: "Can't delete",
       });
     }
-    res.json({
+    return res.json({
       message: "Deleted sucessfully",
     });
   });
