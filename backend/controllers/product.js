@@ -2,8 +2,6 @@ const Product = require("../models/product");
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
-const product = require("../models/product");
-const {sortBy} = require("lodash");
 
 exports.getProductById = (req, res, next, id) => {
   Product.findById(id)
@@ -110,7 +108,7 @@ exports.updateProduct = (req, res) => {
     product = _.extend(product, fields);
 
     // file handling
-    let product = req.product;
+
     if (file.photo) {
       if (file.photo.size > 3145728) {
         return res.status(400).json({
@@ -173,5 +171,18 @@ exports.updateStock = (req, res, next) => {
       });
     }
     next();
+  });
+};
+
+exports.getAllUniqueCategory = (req, res) => {
+  Product.distinct("category", {}, (err, category) => {
+    if (err) {
+      if (err) {
+        return res.status(400).json({
+          error: "No category found",
+        });
+      }
+    }
+    res.json(category);
   });
 };

@@ -11,6 +11,7 @@ const {
   deleteProduct,
   updateProduct,
   getAllProducts,
+  getAllUniqueCategory,
 } = require("../controllers/product");
 
 // params
@@ -31,7 +32,9 @@ router.post(
 // read route
 router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
-router.get("/products", getAllProducts());
+router.get("/products", getAllProducts);
+router.get("products/categories", getAllUniqueCategory);
+
 // delete route
 router.delete(
   "/product/:productId/:userId",

@@ -76,7 +76,7 @@ exports.purchaseList = (req, res) => {
 // middleware
 exports.pushOrderToPurchaseList = (req, res, next) => {
   let purchases = [];
-  req.body.order.products.forEach((item) => {
+  req.body.order.products.forEach((product) => {
     purchases.push({
       _id: product._id,
       name: product.name,
