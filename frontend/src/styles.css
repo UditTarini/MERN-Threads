@@ -7,3 +7,19 @@
 body {
   background: #141414;
 }
+
+.baseColor {
+  background: #141414;
+}
+
+.orange {
+  background-color: #f86205;
+}
+
+.orange-text {
+  color: #f86205;
+}
+
+.footer {
+  background: #1f1f1f;
+}
