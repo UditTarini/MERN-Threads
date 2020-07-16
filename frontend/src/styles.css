@@ -20,6 +20,45 @@ body {
   color: #f86205;
 }
 
+.navbar-brand {
+  font-family: "Satisfy";
+  font-size: 40px;
+}
+
+
+.navbar-brand:hover {
+  color: #f86205;
+}
+
+.navbar-nav {
+
+  font-family: "Alegreya Sans";
+  font-size: 1.2em;
+}
+
+
+
+input:hover {
+  /* border-color: #f86205; */
+  box-shadow: 0 0 0 0.15rem rgba(248, 98, 5)
+}
+
+.form-control:focus {
+  /* border-color: #f86205; */
+  /* border-width: 0.15em; */
+  box-shadow: 0 0 0 0.15rem rgba(248, 98, 5)
+}
+
+.btn-block {
+  border-radius: 10px;
+  height: 2.5em;
+  font-weight: bold;
+  font-family: "Alegreya Sans";
+  font-size: larger;
+  color: aliceblue;
+}
+
 .footer {
   background: #1f1f1f;
+
 }

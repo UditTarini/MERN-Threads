@@ -3,7 +3,7 @@ import {Link, withRouter} from "react-router-dom";
 
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
-    return {color: "#ff7a29"};
+    return {color: "#ff7a29", fontWeight: "bold"};
   } else {
     return {color: "#d1d1d1"};
   }
@@ -11,12 +11,8 @@ const currentTab = (history, path) => {
 
 const NavigationBar = ({history}) => {
   return (
-    <nav class="navbar navbar-expand-lg  baseColor">
-      <a
-        class="navbar-brand orange-text "
-        style={{fontFamily: "Satisfy", fontSize: 40}}
-        href="#"
-      >
+    <nav class="navbar navbar-expand-lg baseColor">
+      <a class="navbar-brand orange-text " href="/">
         Threads
       </a>
       <button
@@ -31,10 +27,7 @@ const NavigationBar = ({history}) => {
         <span class="navbar-toggler-icon "></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul
-          style={{fontFamily: "Alegreya Sans", fontSize: 19}}
-          className=" navbar-nav"
-        >
+        <ul className=" navbar-nav ">
           <li className="nav-item">
             <Link style={currentTab(history, "/")} className="nav-link" to="/">
               Home
@@ -44,7 +37,7 @@ const NavigationBar = ({history}) => {
             <Link
               style={currentTab(history, "/user/dashboard")}
               className="nav-link"
-              to="/"
+              to="/user/dashboard"
             >
               Dashboard
             </Link>
@@ -53,7 +46,7 @@ const NavigationBar = ({history}) => {
             <Link
               style={currentTab(history, "/cart")}
               className="nav-link"
-              to="/"
+              to="/cart"
             >
               Cart
             </Link>
@@ -62,7 +55,7 @@ const NavigationBar = ({history}) => {
             <Link
               style={currentTab(history, "/signup")}
               className="nav-link"
-              to="/"
+              to="/signup"
             >
               Signup
             </Link>
@@ -71,7 +64,7 @@ const NavigationBar = ({history}) => {
             <Link
               style={currentTab(history, "/signin")}
               className="nav-link"
-              to="/"
+              to="/signin"
             >
               Signin
             </Link>
@@ -80,7 +73,7 @@ const NavigationBar = ({history}) => {
             <Link
               style={currentTab(history, "/admin/dashboard")}
               className="nav-link"
-              to="/"
+              to="/admin/dashboard"
             >
               Admin
             </Link>
