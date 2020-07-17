@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import Base from "../core/Base";
 import {signin, authenticate, isAuthenticated} from "../auth/helper";
 
@@ -107,7 +107,7 @@ export default function Signin() {
   return (
     <Base>
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-6 offset-sm-3 ">
           {loadingMsg()}
           {errorMsg()}
           {signInForm()}

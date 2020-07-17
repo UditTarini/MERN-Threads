@@ -12,8 +12,8 @@ const currentTab = (history, path) => {
 
 const NavigationBar = ({history}) => {
   return (
-    <nav class="navbar navbar-expand-lg baseColor">
-      <a class="navbar-brand orange-text " href="/">
+    <nav className="navbar navbar-expand-lg baseColor">
+      <a className="navbar-brand orange-text " href="/">
         Threads
       </a>
       <button

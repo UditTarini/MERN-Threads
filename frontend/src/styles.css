@@ -58,6 +58,12 @@ input:hover {
   color: aliceblue;
 }
 
+.btn {
+  border-radius: 6px;
+  color: aliceblue;
+}
+
+
 .nav-link {
   cursor: pointer;
 }

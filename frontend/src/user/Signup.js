@@ -107,7 +107,7 @@ export default function Signup() {
   return (
     <Base>
       <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
+        <div className="col-md-6 offset-sm-3">
           {successMsg()}
           {errorMsg()}
           {signUpForm()}
