@@ -58,6 +58,10 @@ input:hover {
   color: aliceblue;
 }
 
+.nav-link {
+  cursor: pointer;
+}
+
 .footer {
   background: #1f1f1f;
 
