@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Base from "../core/Base";
 import {isAuthenticated} from "../auth/helper";
-import createCategory from "./helper/adminApiCalls";
+import {createCategory} from "./helper/adminApiCalls";
 
 export default function AddCategory() {
   const [name, setName] = useState("");

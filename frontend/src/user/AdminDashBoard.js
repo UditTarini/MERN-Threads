@@ -17,6 +17,14 @@ export default function AdminDashboard() {
           </li>
           <li className="list-group-item">
             <Link
+              to="/admin/orders"
+              className="nav-link orange-text font-weight-bold"
+            >
+              Manage Orders
+            </Link>
+          </li>
+          <li className="list-group-item">
+            <Link
               to="/admin/create/category"
               className="nav-link orange-text font-weight-bold"
             >
@@ -31,14 +39,7 @@ export default function AdminDashboard() {
               Create Products
             </Link>
           </li>
-          <li className="list-group-item">
-            <Link
-              to="/admin/orders"
-              className="nav-link orange-text font-weight-bold"
-            >
-              Manage Orders
-            </Link>
-          </li>
+
           <li className="list-group-item">
             <Link
               to="/admin/products"

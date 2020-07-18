@@ -5,8 +5,13 @@ import Signup from "./user/Signup";
 import Signin from "./user/Signin";
 import AdminDashboard from "./user/AdminDashBoard";
 import PrivateRoute from "./auth/helper/PrivateRoute";
+import AdminRoute from "./auth/helper/AdminRoute";
 import UserDashboard from "./user/UserDashBoard";
 import AddCategory from "./admin/AddCategory";
+import AddProduct from "./admin/AddProduct";
+
+import Orders from "./admin/Orders";
+import UpdateProduct from "./admin/UpdateProduct";
 
 export default function Routes() {
   return (
@@ -15,16 +20,21 @@ export default function Routes() {
         <Route path="/" exact component={Home}></Route>
         <Route path="/signup" exact component={Signup}></Route>
         <Route path="/signin" exact component={Signin}></Route>
-        <PrivateRoute
-          path="/admin/dashboard"
-          exact
-          component={AdminDashboard}
-        />
-        <PrivateRoute
+        <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
+        <AdminRoute
           path="/admin/create/category"
           exact
           component={AddCategory}
         />
+        <AdminRoute
+          path="/admin/create/products"
+          exact
+          component={AddProduct}
+        />
+
+        <AdminRoute path="/admin/products" exact component={UpdateProduct} />
+
+        <AdminRoute path="/admin/orders" exact component={Orders} />
 
         <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
       </Switch>
