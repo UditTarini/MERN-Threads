@@ -8,6 +8,7 @@ exports.getProductById = (req, res, next, id) => {
     .populate("category")
     .exec((err, product) => {
       if (err) {
+        console.log(err);
         return res.status(400).json({
           error: "Can't find product",
         });
@@ -139,15 +140,17 @@ exports.getAllProducts = (req, res) => {
 
   Product.find()
     .select("-photo")
-    .populate("category")
+    .populate("Category")
     .sort([[sortBy, "asc"]])
     .limit(limit)
-    .exec((err, products) => {
-      if (err) {
+    .exec((error, products) => {
+      if (error) {
+        console.log(error);
         return res.status(400).json({
-          error: "Can't get products",
+          error: "can't get products",
         });
       }
+
       return res.json(products);
     });
 };
