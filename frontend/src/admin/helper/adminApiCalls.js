@@ -46,7 +46,7 @@ export const createProduct = (userId, token, product) => {
     .catch((error) => console.log(error));
 };
 
-export const getProduct = () => {
+export const getProducts = () => {
   return fetch(`${base_route}/products`, {
     method: "GET",
   })
@@ -71,7 +71,7 @@ export const updateProduct = (userId, token, productId, product) => {
     method: "PUT",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json",
+
       Authorization: `Bearer ${token}`,
     },
     body: product,

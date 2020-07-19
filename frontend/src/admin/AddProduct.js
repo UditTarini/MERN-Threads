@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {isAuthenticated} from "../auth/helper";
+
 import Base from "../core/Base";
 import {getCategories, createProduct} from "./helper/adminApiCalls";
 import {useEffect} from "react";
@@ -14,7 +15,7 @@ export default function AddProduct() {
     error: "",
     categories: [],
     createdProduct: "",
-    getRedirect: false,
+
     formData: "",
   });
 
@@ -52,12 +53,13 @@ export default function AddProduct() {
   }, []);
 
   const successMsg = () => {
-    if (createdProduct)
+    if (createdProduct) {
       return (
         <h4 className="alert alert-success text-success">
           {createdProduct} created successfully
         </h4>
       );
+    }
   };
 
   const errorMsg = () => {
@@ -73,7 +75,7 @@ export default function AddProduct() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    setValues({...values, error: "", loading: true});
+    setValues({...values, error: "", loading: true, getRedirect: true});
     createProduct(user._id, auth_token, formData).then((data) => {
       if (data.error) {
         setValues({...values, error: data.error});
@@ -87,7 +89,6 @@ export default function AddProduct() {
           stock: "",
           loading: false,
           createdProduct: data.name,
-          getRedirect: true,
         });
       }
     });

@@ -12,6 +12,7 @@ import AddProduct from "./admin/AddProduct";
 
 import Orders from "./admin/Orders";
 import UpdateProduct from "./admin/UpdateProduct";
+import ManageProduct from "./admin/ManageProducts";
 
 export default function Routes() {
   return (
@@ -32,7 +33,12 @@ export default function Routes() {
           component={AddProduct}
         />
 
-        <AdminRoute path="/admin/products" exact component={UpdateProduct} />
+        <AdminRoute
+          path="/admin/product/update/:productId"
+          exact
+          component={UpdateProduct}
+        />
+        <AdminRoute path="/admin/products" exact component={ManageProduct} />
 
         <AdminRoute path="/admin/orders" exact component={Orders} />
 
