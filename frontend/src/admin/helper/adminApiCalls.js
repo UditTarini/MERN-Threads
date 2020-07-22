@@ -27,6 +27,49 @@ export const getCategories = () => {
     .catch((error) => console.log(error));
 };
 
+export const getACategory = (categoryId) => {
+  return fetch(`${base_route}/category/${categoryId}`, {
+    method: "GET",
+  })
+    .then((resp) => {
+      // console.log(resp.json());
+      return resp.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const deleteCategory = (userId, token, categoryId) => {
+  return fetch(`${base_route}/category/${categoryId}/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const updateCategory = (userId, token, categoryId, category) => {
+  return fetch(`${base_route}/category/${categoryId}/${userId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+
+    body: JSON.stringify(category),
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((err) => console.log(err));
+};
+
 // for product
 
 export const createProduct = (userId, token, product) => {
@@ -40,7 +83,6 @@ export const createProduct = (userId, token, product) => {
     body: product,
   })
     .then((resp) => {
-      // console.log(resp.json());
       return resp.json();
     })
     .catch((error) => console.log(error));

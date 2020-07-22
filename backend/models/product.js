@@ -8,7 +8,7 @@ const productSchema = new Schema(
       type: String,
       trim: true,
       required: true,
-      maxlength: 40,
+      maxlength: 100,
     },
     description: {
       type: String,
@@ -24,7 +24,7 @@ const productSchema = new Schema(
       type: Number,
       trim: true,
       required: true,
-      maxlength: 40,
+      maxlength: 10,
     },
     category: {
       type: ObjectId,

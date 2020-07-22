@@ -23,12 +23,21 @@ export default function AdminDashboard() {
               Manage Orders
             </Link>
           </li>
+
           <li className="list-group-item">
             <Link
               to="/admin/create/category"
               className="nav-link orange-text font-weight-bold"
             >
               Create Categories
+            </Link>
+          </li>
+          <li className="list-group-item">
+            <Link
+              to="/admin/categories"
+              className="nav-link orange-text font-weight-bold"
+            >
+              Manage Categories
             </Link>
           </li>
           <li className="list-group-item">
