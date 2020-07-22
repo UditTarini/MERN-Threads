@@ -63,6 +63,11 @@ input:hover {
   color: aliceblue;
 }
 
+.heading {
+  font-family: "Alegreya Sans";
+
+
+}
 
 .nav-link {
   cursor: pointer;

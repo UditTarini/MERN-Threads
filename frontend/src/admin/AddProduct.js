@@ -116,6 +116,7 @@ export default function AddProduct() {
             required
           />
         </div>
+
         <div className="form-group">
           <textarea
             type="text"

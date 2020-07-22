@@ -54,6 +54,7 @@ exports.createProduct = (req, res) => {
     // save to DB
     product.save((err, product) => {
       if (err) {
+        console.log(err);
         return res.status(400).json({
           error: "Saving failed",
         });
@@ -135,7 +136,7 @@ exports.updateProduct = (req, res) => {
 };
 
 exports.getAllProducts = (req, res) => {
-  let limit = req.query.limit ? parseInt(req.query.limit) : 8;
+  let limit = req.query.limit ? parseInt(req.query.limit) : 36;
   let sortBy = req.query.sortBy ? parseInt(req.query.sortBy) : "_id";
 
   Product.find()

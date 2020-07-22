@@ -9,7 +9,7 @@ exports.getCategoryById = (req, res, next, id) => {
     }
     // single category
     req.category = category;
-    console.log(req.category);
+
     next();
   });
 };
@@ -46,9 +46,9 @@ exports.updateCategory = (req, res) => {
   const category = req.category;
   if (!category) return res.send("No category found");
   category.name = req.body.name;
-
   category.save((err, updatedCategory) => {
     if (err) {
+      // console.log(err);
       return res.status(400).json({
         error: "Not able to update",
       });
