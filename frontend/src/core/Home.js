@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import "../styles.css";
 import Base from "./Base";
-import Card from "./Card";
+import {BigCard} from "./Card";
 import {useState} from "react";
 import {getProducts} from "./helper/coreApiCalls";
 
@@ -14,7 +14,6 @@ export default function Home() {
       if (data.error) {
         seterror(data.error);
       } else {
-        console.log(data);
         setproducts(data);
       }
     });
@@ -25,14 +24,14 @@ export default function Home() {
   }, []);
 
   return (
-    <Base title="Home Page" description="Welcome to the Tshirt Store">
+    <Base>
       <div className="row text-center">
         <h1 className="heading orange-text">Choose your look</h1>
         <div className="row">
-          {products.map((products, index) => {
+          {products.map((product, index) => {
             return (
               <div key={index} className="col-2">
-                <Card product={products} />
+                <BigCard product={product} />
               </div>
             );
           })}
