@@ -7,7 +7,7 @@ import StripeCheckout from "react-stripe-checkout";
 import {base_route} from "../backend";
 import {createOrder} from "./helper/orderHelper";
 
-const StripePayment = ({
+const CartSummary = ({
   products,
   reload = undefined,
   setReload = (param) => param,
@@ -44,30 +44,9 @@ const StripePayment = ({
     setTotCost();
   });
   const setTotCost = () => {
-    settotCost(totalItemCost() + taxCost() + 25 + 40);
-  };
-
-  const makePayment = (token) => {
-    const body = {
-      token,
-      totCost,
-    };
-    const headers = {
-      "Content-type": "application/json",
-    };
-    return fetch(`${base_route}/payment`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    })
-      .then((resp) => {
-        console.log(resp);
-        createOrder();
-        cartEmpty();
-        const {status} = resp;
-        console.log("STATUS", status);
-      })
-      .catch((err) => console.log(err));
+    let cost = totalItemCost() + taxCost() + 25 + 40;
+    settotCost(cost);
+    localStorage.setItem("cost", cost);
   };
 
   return (
@@ -101,22 +80,24 @@ const StripePayment = ({
               </span>
             </li>
           </ul>
-          <StripeCheckout
+          {/* <StripeCheckout
             stripeKey="pk_test_51GiDxIAimpSUIKJUQE4a9BXoszFV3j2VfNgLKuVJH8ZJ5wPgI4Aaa8IQh4hPZGb2RyvqLJNudTPzEGX8ypea617h00ElEDA1UJ"
             token={makePayment}
             amount={totCost * 100}
             name="Pay Securely"
             shippingAddress
             billingAddress
-          >
-            <button type="button" className="btn orange btn-block">
-              Checkout
-            </button>
-          </StripeCheckout>
+          > */}
+
+          <Link className="btn orange btn-block" to="/payment">
+            Checkout
+          </Link>
+
+          {/* </StripeCheckout> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default StripePayment;
+export default CartSummary;

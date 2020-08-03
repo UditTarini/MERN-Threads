@@ -15,6 +15,8 @@ export const loadCartItems = () => {
   if (typeof window !== undefined) {
     if (localStorage.getItem("cart")) {
       return JSON.parse(localStorage.getItem("cart"));
+    } else {
+      return [];
     }
   }
 };
@@ -38,6 +40,5 @@ export const removeCartItems = (productId) => {
 export const cartEmpty = (next) => {
   if (typeof window !== undefined) {
     localStorage.removeItem("cart");
-    next();
   }
 };

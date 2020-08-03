@@ -16,6 +16,7 @@ import ManageProduct from "./admin/ManageProducts";
 import ManageCategory from "./admin/ManageCategory";
 import UpdateCategory from "./admin/UpdateCategory";
 import Cart from "./core/Cart";
+import Payment from "./core/Payment";
 
 export default function Routes() {
   return (
@@ -53,6 +54,7 @@ export default function Routes() {
 
         <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
         <PrivateRoute path="/cart" exact component={Cart} />
+        <PrivateRoute path="/payment" exact component={Payment} />
       </Switch>
     </Router>
   );
