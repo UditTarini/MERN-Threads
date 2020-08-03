@@ -17,7 +17,7 @@ const NavigationBar = ({history}) => {
         Threads
       </a>
       <button
-        class="navbar-toggler navbar-dark"
+        className="navbar-toggler navbar-dark"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -25,9 +25,9 @@ const NavigationBar = ({history}) => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon "></span>
+        <span className="navbar-toggler-icon "></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div className="collapse navbar-collapse" id="navbarNav">
         <ul className=" navbar-nav ">
           <li className="nav-item">
             <Link style={currentTab(history, "/")} className="nav-link" to="/">

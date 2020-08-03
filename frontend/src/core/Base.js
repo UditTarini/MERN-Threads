@@ -9,12 +9,12 @@ export default function Base({className = " text-white p-4", children}) {
         <div className={className}>{children}</div>
       </div>
 
-      <div class="container-fluid justify-content-center p-0 mx-0 baseColor">
+      <div className="container-fluid justify-content-center p-0 mx-0 baseColor">
         <footer>
-          <div class="row mb-0 mt-4 mx-4 row-2 justify-content-xl-around justify-content-sm-between">
-            <div class="col-xs-6 pt-4 px-3">
-              <ul class="list-unstyled text-white">
-                <li class="mt-md-0 text-secondary ">HELP</li>
+          <div className="row mb-0 mt-4 mx-4 row-2 justify-content-xl-around justify-content-sm-between">
+            <div className="col-xs-6 pt-4 px-3">
+              <ul className="list-unstyled text-white">
+                <li className="mt-md-0 text-secondary ">HELP</li>
                 <li>Your Account</li>
                 <li>Payments</li>
                 <li>Refund</li>
@@ -25,9 +25,9 @@ export default function Base({className = " text-white p-4", children}) {
               </ul>
             </div>
 
-            <div class="col-xs-6 pt-4 px-3">
-              <ul class="list-unstyled text-white">
-                <li class="mt-md-0 text-secondary">ABOUT</li>
+            <div className="col-xs-6 pt-4 px-3">
+              <ul className="list-unstyled text-white">
+                <li className="mt-md-0 text-secondary">ABOUT</li>
                 <li>Contact Us</li>
                 <li>About Us</li>
                 <li>Careers</li>
@@ -35,9 +35,9 @@ export default function Base({className = " text-white p-4", children}) {
               </ul>
             </div>
 
-            <div class="col-xs-6 pt-4 px-3">
-              <ul class="list-unstyled text-white">
-                <li class="mt-md-0 text-secondary">POLICY</li>
+            <div className="col-xs-6 pt-4 px-3">
+              <ul className="list-unstyled text-white">
+                <li className="mt-md-0 text-secondary">POLICY</li>
                 <li>Return Policy</li>
                 <li>Terms Of Use</li>
                 <li>Security</li>
@@ -45,9 +45,9 @@ export default function Base({className = " text-white p-4", children}) {
                 <li>Sitemap</li>
               </ul>
             </div>
-            <div class="col-xs-6 pt-4 px-3">
-              <ul class="list-unstyled text-white">
-                <li class="mt-md-0 text-secondary">SOCIAL</li>
+            <div className="col-xs-6 pt-4 px-3">
+              <ul className="list-unstyled text-white">
+                <li className="mt-md-0 text-secondary">SOCIAL</li>
                 <li>Facebook</li>
                 <li>Twitter</li>
                 <li>YouTube</li>
@@ -57,9 +57,9 @@ export default function Base({className = " text-white p-4", children}) {
             </div>
           </div>
 
-          <div class="row justify-content-lg-around mx-xl-5 mx-lg-4 mx-3 py-3">
-            <div class="col order-1 align-self-center text-secondary">
-              <p class="mb-0 text-uppercase">
+          <div className="row justify-content-lg-around mx-xl-5 mx-lg-4 mx-3 py-3">
+            <div className="col order-1 align-self-center text-secondary">
+              <p className="mb-0 text-uppercase">
                 we're accountable for seven days a week, 24 hours a day
               </p>
               <small>
@@ -69,8 +69,8 @@ export default function Base({className = " text-white p-4", children}) {
             </div>
           </div>
 
-          <div class="row text-center py-3">
-            <div class="col text-secondary">
+          <div className="row text-center py-3">
+            <div className="col text-secondary">
               <div href="/shop/" style={{fontFamily: "Satisfy", fontSize: 30}}>
                 Threads
               </div>
