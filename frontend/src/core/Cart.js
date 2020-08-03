@@ -4,7 +4,7 @@ import {useState} from "react";
 import Base from "./Base";
 import {SmallCard} from "./Card";
 import {loadCartItems} from "./helper/cartHelper";
-import StripePayment from "./StripePayment";
+import CartSummary from "./CartSummary";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -16,30 +16,42 @@ const Cart = () => {
 
   return (
     <Base>
-      <h1 className="heading orange-text">
-        You have {products.length} items in your cart{" "}
-      </h1>
+      {products.length > 0 ? (
+        <div>
+          <h1 className="heading orange-text">
+            You have {products.length} items in your cart
+          </h1>
 
-      <div className="row">
-        <div className="col-lg-8">
-          {products.map((product, index) => (
-            <SmallCard
-              key={index}
-              product={product}
-              setReload={setReload}
-              reload={reload}
-            />
-          ))}
-          <p className="text-white mb-0">
-            Do not delay the purchase, adding items to your cart does not mean
-            booking them.
-          </p>
-        </div>
+          <div className="row">
+            <div className="col-lg-8">
+              {products.map((product, index) => (
+                <SmallCard
+                  key={index}
+                  product={product}
+                  setReload={setReload}
+                  reload={reload}
+                />
+              ))}
+              <p className="text-white mb-0">
+                Do not delay the purchase, adding items to your cart does not
+                mean booking them.
+              </p>
+            </div>
 
-        <div className="col-lg-4">
-          <StripePayment products={products} setReload={setReload} />
+            <div className="col-lg-4">
+              <CartSummary
+                products={products}
+                setReload={setReload}
+                reload={reload}
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <h1 className="heading orange-text text-center">
+          You have no items in your cart
+        </h1>
+      )}
     </Base>
   );
 };

@@ -62,6 +62,10 @@ input:hover {
   font-family: "Hind";
 }
 
+.AlegreyaSans {
+  font-family: "Alegreya Sans";
+}
+
 .btn {
   border-radius: 6px;
   color: aliceblue;
@@ -70,6 +74,12 @@ input:hover {
 .heading {
   font-family: "Alegreya Sans";
 
+
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 
 }
 
