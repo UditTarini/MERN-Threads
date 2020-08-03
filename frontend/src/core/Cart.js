@@ -2,15 +2,17 @@ import React, {useEffect} from "react";
 import ImageHelper from "./helper/ImageHelper";
 import {useState} from "react";
 import Base from "./Base";
-import {SmallCard, Checkout} from "./Card";
+import {SmallCard} from "./Card";
 import {loadCartItems} from "./helper/cartHelper";
+import StripePayment from "./StripePayment";
 
-const Cart = ({product}) => {
-  const [products, setproducts] = useState([]);
+const Cart = () => {
+  const [products, setProducts] = useState([]);
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
-    setproducts(loadCartItems());
-  }, []);
+    setProducts(loadCartItems());
+  }, [reload]);
 
   return (
     <Base>
@@ -21,7 +23,12 @@ const Cart = ({product}) => {
       <div className="row">
         <div className="col-lg-8">
           {products.map((product, index) => (
-            <SmallCard key={index} product={product} />
+            <SmallCard
+              key={index}
+              product={product}
+              setReload={setReload}
+              reload={reload}
+            />
           ))}
           <p className="text-white mb-0">
             Do not delay the purchase, adding items to your cart does not mean
@@ -30,7 +37,7 @@ const Cart = ({product}) => {
         </div>
 
         <div className="col-lg-4">
-          <Checkout />
+          <StripePayment products={products} setReload={setReload} />
         </div>
       </div>
     </Base>
