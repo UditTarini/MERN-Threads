@@ -80,20 +80,10 @@ const CartSummary = ({
               </span>
             </li>
           </ul>
-          {/* <StripeCheckout
-            stripeKey="pk_test_51GiDxIAimpSUIKJUQE4a9BXoszFV3j2VfNgLKuVJH8ZJ5wPgI4Aaa8IQh4hPZGb2RyvqLJNudTPzEGX8ypea617h00ElEDA1UJ"
-            token={makePayment}
-            amount={totCost * 100}
-            name="Pay Securely"
-            shippingAddress
-            billingAddress
-          > */}
 
           <Link className="btn orange btn-block" to="/payment">
             Checkout
           </Link>
-
-          {/* </StripeCheckout> */}
         </div>
       </div>
     </div>
