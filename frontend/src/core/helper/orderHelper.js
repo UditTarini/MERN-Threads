@@ -1,6 +1,7 @@
 const {base_route} = require("../../backend");
 
 export const createOrder = (userId, token, orderData) => {
+  console.log("order");
   return fetch(`${base_route}/order/create/${userId}`, {
     method: "POST",
     headers: {
