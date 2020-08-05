@@ -63,7 +63,7 @@ export default function Payment() {
     );
   };
 
-  const onPurchase = (Cost, products) => {
+  const onPurchase = () => {
     setInfo({loading: true});
     let nonce;
     let getNonce = info.instance.requestPaymentMethod().then((data) => {
@@ -71,12 +71,12 @@ export default function Payment() {
 
       const paymentData = {
         paymentMethodNonce: nonce,
-        amount: Cost,
+        amount: totCost,
       };
       braintreePayment(userId, token, paymentData)
         .then((resp) => {
           setInfo({...info, success: resp.success, loading: false});
-          console.log("heloo", resp);
+
           const orderData = {
             products: products,
             transaction_id: resp.transaction.id,
@@ -84,7 +84,7 @@ export default function Payment() {
           };
           createOrder(userId, token, orderData);
 
-          cartEmpty();
+          // cartEmpty();
         })
         .catch((err) => {
           setInfo({loading: false, success: false});

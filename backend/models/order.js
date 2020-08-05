@@ -22,7 +22,7 @@ const orderSchema = new Schema(
     status: {
       type: String,
       default: "Received",
-      enum: ["Recived", "Cancelled", "Processing", "Shipped", "Delivered"],
+      enum: ["Received", "Cancelled", "Processing", "Shipped", "Delivered"],
     },
     user: {
       type: ObjectId,

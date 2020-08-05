@@ -1,7 +1,6 @@
 const {base_route} = require("../../backend");
 
 export const createOrder = (userId, token, orderData) => {
-  console.log("order");
   return fetch(`${base_route}/order/create/${userId}`, {
     method: "POST",
     headers: {
@@ -12,6 +11,7 @@ export const createOrder = (userId, token, orderData) => {
     body: JSON.stringify({order: orderData}),
   })
     .then((resp) => {
+      console.log("order", resp.json());
       return resp.json();
     })
     .catch((err) => console.log(err));

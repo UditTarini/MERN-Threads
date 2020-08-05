@@ -16,15 +16,18 @@ exports.getOrderById = (req, res, id, next) => {
 };
 
 exports.createOrder = (req, res) => {
+  console.log("ORDER IN");
   req.body.order.user = req.profile;
   const order = new Order(req.body.order);
   order.save((err, order) => {
     if (err) {
+      console.log("ORDER IN", err);
       return res.status(400).json({
         error: "Can't save",
       });
     }
-    return res.json(order);
+    console.log("ORDER", order);
+    res.json(order);
   });
 };
 

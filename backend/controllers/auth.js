@@ -108,6 +108,7 @@ exports.isAuthenticated = (req, res, next) => {
       error: "Access denied",
     });
   }
+
   next();
 };
 

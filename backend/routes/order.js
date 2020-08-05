@@ -20,7 +20,7 @@ router.param("orderId", getOrderById);
 //------------- routes ----------
 // create
 router.post(
-  "order/create/:userId",
+  "/order/create/:userId",
   isSignedIn,
   isAuthenticated,
   pushOrderToPurchaseList,
@@ -46,9 +46,11 @@ router.get(
 
 // update
 router.put(
-  "/order.:orderId/status/:userId",
+  "/order/:orderId/status/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
   updateStatus
 );
+
+module.exports = router;
