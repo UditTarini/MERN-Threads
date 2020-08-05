@@ -26,7 +26,6 @@ export const braintreePayment = (userId, token, paymentInfo) => {
     body: JSON.stringify(paymentInfo),
   })
     .then((resp) => {
-      //   console.log(resp);
       return resp.json();
     })
     .catch((err) => console.log(err));

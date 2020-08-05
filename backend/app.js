@@ -10,7 +10,7 @@ const auth_route = require("./routes/auth");
 const user_route = require("./routes/user");
 const category_route = require("./routes/category");
 const product_route = require("./routes/product");
-const order_route = require("./routes/product");
+const order_route = require("./routes/order");
 const payment_route = require("./routes/payment");
 
 // connection
@@ -19,6 +19,7 @@ mongoose
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => console.log("DB CONNECTED"));
 

@@ -59,7 +59,7 @@ exports.getToken = (req, res) => {
 };
 
 exports.braintreePayment = (req, res) => {
-  let nonceFromTheClient = req.body.payment_method_nonce;
+  let nonceFromTheClient = req.body.paymentMethodNonce;
   let amount = req.body.amount;
 
   gateway.transaction.sale(
@@ -73,7 +73,6 @@ exports.braintreePayment = (req, res) => {
     },
     function (err, result) {
       if (err) {
-        console.log(err);
         res.status(500).json(err);
       } else {
         res.json(result);

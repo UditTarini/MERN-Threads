@@ -7,6 +7,7 @@ import {addItemToCart, removeCartItems} from "./helper/cartHelper";
 
 export const BigCard = ({product}) => {
   const [redirect, setredirect] = useState(false);
+  const [count, setCount] = useState(product.count);
 
   const _addToCart = () => {
     addItemToCart(product, () => setredirect(true));

@@ -76,6 +76,7 @@ exports.purchaseList = (req, res) => {
 // middleware
 exports.pushOrderToPurchaseList = (req, res, next) => {
   let purchases = [];
+
   req.body.order.products.forEach((product) => {
     purchases.push({
       _id: product._id,
@@ -90,7 +91,7 @@ exports.pushOrderToPurchaseList = (req, res, next) => {
 
   User.findOneAndUpdate(
     {_id: req.profile._id},
-    {$push: {purchases}},
+    {$push: {purchases: purchases}},
     {new: true},
     (err, purchase) => {
       if (err) {
