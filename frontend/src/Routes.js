@@ -15,6 +15,7 @@ import UpdateProduct from "./admin/UpdateProduct";
 import ManageProduct from "./admin/ManageProducts";
 import ManageCategory from "./admin/ManageCategory";
 import UpdateCategory from "./admin/UpdateCategory";
+import UpdateOrder from "./admin/UpdateOrder";
 import Cart from "./core/Cart";
 import Payment from "./core/Payment";
 
@@ -25,6 +26,11 @@ export default function Routes() {
         <Route path="/" exact component={Home}></Route>
         <Route path="/signup" exact component={Signup}></Route>
         <Route path="/signin" exact component={Signin}></Route>
+
+        <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
+        <PrivateRoute path="/cart" exact component={Cart} />
+        <PrivateRoute path="/payment" exact component={Payment} />
+
         <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
         <AdminRoute
           path="/admin/create/category"
@@ -36,6 +42,9 @@ export default function Routes() {
           exact
           component={AddProduct}
         />
+        <AdminRoute path="/admin/products" exact component={ManageProduct} />
+        <AdminRoute path="/admin/orders" exact component={Orders} />
+        <AdminRoute path="/admin/categories" exact component={ManageCategory} />
 
         <AdminRoute
           path="/admin/product/update/:productId"
@@ -47,14 +56,12 @@ export default function Routes() {
           exact
           component={UpdateCategory}
         />
-        <AdminRoute path="/admin/products" exact component={ManageProduct} />
 
-        <AdminRoute path="/admin/orders" exact component={Orders} />
-        <AdminRoute path="/admin/categories" exact component={ManageCategory} />
-
-        <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
-        <PrivateRoute path="/cart" exact component={Cart} />
-        <PrivateRoute path="/payment" exact component={Payment} />
+        <AdminRoute
+          path="/admin/order/update/:orderId"
+          exact
+          component={UpdateOrder}
+        />
       </Switch>
     </Router>
   );
