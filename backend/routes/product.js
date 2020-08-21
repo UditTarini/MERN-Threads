@@ -33,7 +33,7 @@ router.post(
 router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);
 router.get("/products", getAllProducts);
-router.get("products/categories", getAllUniqueCategory);
+router.get("/products/categories", getAllUniqueCategory);
 
 // delete route
 router.delete(

@@ -11,6 +11,7 @@ const {
   getAllOrders,
   getOrderStatus,
   updateStatus,
+  getOrder,
 } = require("../controllers/order");
 
 // params
@@ -30,18 +31,26 @@ router.post(
 
 // read
 router.get(
-  "/order/all/:useId",
+  "/order/all/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
   getAllOrders
 );
+
 router.get(
   "/order/status/:userId",
   isSignedIn,
   isAuthenticated,
   isAdmin,
   getOrderStatus
+);
+router.get(
+  "/order/:orderId/:userId",
+  isSignedIn,
+  isAuthenticated,
+  isAdmin,
+  getOrder
 );
 
 // update

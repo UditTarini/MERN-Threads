@@ -15,9 +15,11 @@ export default function UpdateProduct({match}) {
     description: "",
     price: "",
     stock: "",
+    photo: "",
     loading: false,
     error: "",
     categories: [],
+    category: "",
     createdProduct: "",
     getRedirect: false,
     formData: "",
@@ -28,11 +30,12 @@ export default function UpdateProduct({match}) {
     description,
     price,
     stock,
+    categories,
+    category,
     loading,
     error,
-    categories,
     createdProduct,
-    getRedirect,
+    getaRedirect,
     formData,
   } = values;
 
@@ -44,6 +47,7 @@ export default function UpdateProduct({match}) {
         setValues({...values, error: data.error});
       } else {
         loadCategories();
+
         setValues({
           ...values,
           name: data.name,

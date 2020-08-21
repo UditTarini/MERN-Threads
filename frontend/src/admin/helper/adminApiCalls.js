@@ -1,6 +1,6 @@
 const {base_route} = require("../../backend");
 
-// for category
+//******** FOR CATEGORY ********//
 export const createCategory = (userId, token, category) => {
   return fetch(`${base_route}/category/create/${userId}`, {
     method: "POST",
@@ -32,7 +32,6 @@ export const getACategory = (categoryId) => {
     method: "GET",
   })
     .then((resp) => {
-      // console.log(resp.json());
       return resp.json();
     })
     .catch((err) => console.log(err));
@@ -70,7 +69,7 @@ export const updateCategory = (userId, token, categoryId, category) => {
     .catch((err) => console.log(err));
 };
 
-// for product
+//******** FOR PRODUCT ********//
 
 export const createProduct = (userId, token, product) => {
   return fetch(`${base_route}/product/create/${userId}`, {
@@ -132,6 +131,69 @@ export const deleteProduct = (userId, token, productId) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+//******** FOR ORDER ********//
+export const getOrders = (userId, token) => {
+  return fetch(`${base_route}/order/all/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((error) => console.log(error));
+};
+
+export const getAOrder = (token, orderId, userId) => {
+  return fetch(`${base_route}/order/${orderId}/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((error) => console.log(error));
+};
+
+export const getOrderStatus = (userId, token) => {
+  return fetch(`${base_route}/order/status/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((error) => console.log("err", error));
+};
+
+export const updateOrder = (token, statusData, orderId, userId) => {
+  return fetch(`${base_route}/order/${orderId}/status/${userId}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+
+    body: JSON.stringify({status: statusData}),
   })
     .then((resp) => {
       return resp.json();
