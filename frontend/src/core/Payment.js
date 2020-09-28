@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import StripePayment from "./CartSummary";
+
 import {loadCartItems, cartEmpty} from "./helper/cartHelper";
 import {useState} from "react";
 import {base_route} from "../backend";

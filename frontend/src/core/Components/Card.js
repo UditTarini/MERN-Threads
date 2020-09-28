@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
-import ImageHelper from "./helper/ImageHelper";
-import "../../node_modules/font-awesome/css/font-awesome.min.css";
+import {ImageHelper} from "../helper/ImageHelper";
+import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 import {useState} from "react";
 import {Redirect} from "react-router-dom";
-import {addItemToCart, removeCartItems} from "./helper/cartHelper";
+import {addItemToCart, removeCartItems} from "../helper/cartHelper";
 
 export const BigCard = ({product}) => {
   const [redirect, setredirect] = useState(false);
@@ -33,7 +33,7 @@ export const BigCard = ({product}) => {
     <div className="card  bg-dark my-4">
       <ImageHelper product={product} size={"100%"} />
       {getARedirect(redirect)}
-      <p className=" text-wrap">{product.name.slice(0, 25)}...</p>
+      <p className="text-wrap h-1">{product.name.slice(0, 15)}...</p>
       <h6>price: {`\u20B9 ${product.price}`}</h6>
 
       <div className="px-2 m-2">{showAddToCart()}</div>

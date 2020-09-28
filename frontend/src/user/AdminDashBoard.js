@@ -96,8 +96,12 @@ export default function AdminDashboard() {
         Welcome Admin...
       </p>
       <div className="row">
-        <div className="col-3">{adminLeftView()}</div>
-        <div className="col-9">{adminRightView()}</div>
+        <div className="col-12 col-sm-12 col-md-3 col-lg-3 ">
+          {adminLeftView()}
+        </div>
+        <div className="col-12 col-sm-12 col-md-9 col-lg-9">
+          {adminRightView()}
+        </div>
       </div>
     </Base>
   );

@@ -9,7 +9,7 @@ body {
 }
 
 .baseColor {
-  background: #141414;
+  background-color: #141414;
 }
 
 .orange {
@@ -66,15 +66,29 @@ input:hover {
   font-family: "Alegreya Sans";
 }
 
+.Satisfy {
+  font-family: "Satisfy";
+}
+
+.Merriweather {
+  font-family: 'Merriweather', serif;
+}
+
 .btn {
-  border-radius: 6px;
+
   color: aliceblue;
 }
 
 .heading {
   font-family: "Alegreya Sans";
+}
+
+.full_star {
 
 
+  color: linear-gradient(106deg, rgba(255, 226, 0, 1) 0%, rgba(250, 210, 5, 1) 51%, rgba(255, 157, 0, 1) 80%);
+  color: rgb(255, 226, 0);
+  margin: 5px;
 }
 
 .my-auto {
@@ -90,4 +104,12 @@ input:hover {
 .footer {
   background: #1f1f1f;
 
+}
+
+.product-large {
+  height: 620px;
+  margin-left: -15px;
+  margin-right: -15px;
+  text-align: center;
+  padding-top: 285px;
 }
