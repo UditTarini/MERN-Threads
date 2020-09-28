@@ -8,10 +8,12 @@
     "@testing-library/user-event": "^7.1.2",
     "braintree-web-drop-in-react": "^1.1.1",
     "font-awesome": "^4.7.0",
+    "npm-install-missing": "^0.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-owl-carousel": "^2.3.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "react-stripe-checkout": "^2.6.3"
   },
   "scripts": {

@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
-import ImageHelper from "./helper/ImageHelper";
+import {ImageHelper} from "./helper/ImageHelper";
 import {useState} from "react";
 import Base from "./Base";
-import {SmallCard} from "./Card";
+import {SmallCard} from "./Components/Card";
 import {loadCartItems} from "./helper/cartHelper";
 import CartSummary from "./CartSummary";
 
