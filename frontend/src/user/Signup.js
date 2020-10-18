@@ -111,7 +111,6 @@ export default function Signup() {
           {successMsg()}
           {errorMsg()}
           {signUpForm()}
-          <p className="text-white text-center">{JSON.stringify(values)}</p>
         </div>
       </div>
     </Base>

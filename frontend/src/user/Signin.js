@@ -5,8 +5,8 @@ import {signin, authenticate, isAuthenticated} from "../auth/helper";
 
 export default function Signin() {
   const [values, setValues] = useState({
-    email: "user1@gmail.com",
-    password: "User1@gmail.com",
+    email: "",
+    password: "",
     error: "",
     loading: false,
     didRedirect: false,
@@ -78,11 +78,12 @@ export default function Signin() {
     signin({email, password})
       .then((data) => {
         if (data.error) {
-          setValues({...values, error: data.error, loading: true});
+          setValues({...values, error: data.error});
         } else {
           authenticate(data, () => {
             setValues({
               ...values,
+              loading: false,
               didRedirect: true,
             });
           });
@@ -112,7 +113,6 @@ export default function Signin() {
           {errorMsg()}
           {signInForm()}
           {redirectOperation()}
-          <p className="text-white text-center">{JSON.stringify(values)}</p>
         </div>
       </div>
     </Base>

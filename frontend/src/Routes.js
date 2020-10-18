@@ -16,6 +16,8 @@ import ManageProduct from "./admin/ManageProducts";
 import ManageCategory from "./admin/ManageCategory";
 import UpdateCategory from "./admin/UpdateCategory";
 import UpdateOrder from "./admin/UpdateOrder";
+import UpdateAdmin from "./user/UpdateAdmin";
+
 import Cart from "./core/Cart";
 import Payment from "./core/Payment";
 
@@ -62,6 +64,8 @@ export default function Routes() {
           exact
           component={UpdateOrder}
         />
+
+        <AdminRoute path="/admin/:userId" exact component={UpdateAdmin} />
       </Switch>
     </Router>
   );
