@@ -39,6 +39,7 @@ export default function AddCategory() {
     setSuccess(false);
     createCategory(user._id, auth_token, {name}).then((data) => {
       if (data.error) {
+        alert(data.error);
         setError(true);
       } else {
         setError("");

@@ -48,6 +48,16 @@ export const authenticate = (data, next) => {
   }
 };
 
+export const addUpdatedUser = (data, next) => {
+  if (typeof window != "undefined") {
+    var existing = JSON.parse(localStorage.getItem("jwt"));
+    existing.user = data;
+
+    localStorage.setItem("jwt", JSON.stringify(existing));
+    next();
+  }
+};
+
 export const signout = (next) => {
   if (typeof window != "undefined") {
     localStorage.removeItem("jwt");

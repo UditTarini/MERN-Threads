@@ -113,3 +113,21 @@ input:hover {
   text-align: center;
   padding-top: 285px;
 }
+
+.list-group-item .badge-warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0 8px 6px -6px black;
+  height: 2rem;
+  width: 4rem;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .heading {
+    font-size: 25px;
+  }
+}

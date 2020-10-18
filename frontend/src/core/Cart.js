@@ -19,7 +19,8 @@ const Cart = () => {
       {products.length > 0 ? (
         <div>
           <h1 className="heading orange-text">
-            You have {products.length} items in your cart
+            You have {products.length} {products.length > 1 ? "items" : "item"}{" "}
+            in your cart
           </h1>
 
           <div className="row">

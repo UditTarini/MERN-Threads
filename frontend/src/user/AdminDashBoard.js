@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 export default function AdminDashboard() {
   const {
-    user: {name, email, role},
+    user: {name, email, role, _id},
   } = isAuthenticated();
 
   const adminLeftView = () => {
@@ -34,7 +34,7 @@ export default function AdminDashboard() {
           </li>
           <li className="list-group-item">
             <Link
-              to="/admin/categories"
+              to={`/admin/categories`}
               className="nav-link orange-text font-weight-bold"
             >
               Manage Categories
@@ -78,9 +78,12 @@ export default function AdminDashboard() {
             {email}
           </li>
           <li className="list-group-item ">
-            <span className="badge badge-danger float-right">
-              Admin privileges
-            </span>
+            <Link
+              to={`/admin/${_id}`}
+              className="badge badge-warning float-right"
+            >
+              Update
+            </Link>
           </li>
         </ul>
       </div>
@@ -96,10 +99,10 @@ export default function AdminDashboard() {
         Welcome Admin...
       </p>
       <div className="row">
-        <div className="col-12 col-sm-12 col-md-3 col-lg-3 ">
+        <div className="col-12 col-sm-12 col-md-4 col-lg-3 mb-5">
           {adminLeftView()}
         </div>
-        <div className="col-12 col-sm-12 col-md-9 col-lg-9">
+        <div className="col-12 col-sm-12 col-md-8 col-lg-9">
           {adminRightView()}
         </div>
       </div>

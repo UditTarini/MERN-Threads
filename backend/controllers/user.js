@@ -26,6 +26,7 @@ exports.getUser = (req, res) => {
 };
 
 exports.updateUser = (req, res) => {
+  console.log(req.body);
   User.findByIdAndUpdate(
     // find
     {_id: req.profile._id},
@@ -50,7 +51,7 @@ exports.updateUser = (req, res) => {
       user.encrypted_password = undefined;
       user.createdAt = undefined;
       user.updatedAt = undefined;
-
+      console.log(user);
       res.json(user);
     }
   );
