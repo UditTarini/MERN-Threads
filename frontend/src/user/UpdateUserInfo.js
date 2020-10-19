@@ -3,9 +3,9 @@ import {Redirect} from "react-router-dom";
 import Base from "../core/Base";
 import {isAuthenticated, addUpdatedUser} from "../auth/helper";
 import {useEffect} from "react";
-import {updateUser} from "../user/helper/userApiCalls";
+import {updateUser} from "./helper/userApiCalls";
 
-const UpdateAdmin = () => {
+const UpdateUserInfo = () => {
   const [values, setValues] = useState({
     error: "",
     loading: false,
@@ -17,7 +17,7 @@ const UpdateAdmin = () => {
     name: "",
   });
 
-  const {error, success, loading} = values;
+  const {error, success} = values;
   const {email, name} = userInfo;
   const {user, auth_token} = isAuthenticated();
 
@@ -100,7 +100,7 @@ const UpdateAdmin = () => {
 
   const successMsg = () => {
     if (success) {
-      return <Redirect to="/admin/dashboard" />;
+      return <Redirect to="/user/dashboard" />;
     }
   };
 
@@ -121,4 +121,4 @@ const UpdateAdmin = () => {
   );
 };
 
-export default UpdateAdmin;
+export default UpdateUserInfo;

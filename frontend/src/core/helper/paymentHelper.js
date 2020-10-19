@@ -30,3 +30,17 @@ export const braintreePayment = (userId, token, paymentInfo) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const stripePayment = (body) => {
+  return fetch(`${base_route}/payment/stripe`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((resp) => {
+      return resp.json();
+    })
+    .catch((err) => console.log(err));
+};

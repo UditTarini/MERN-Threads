@@ -17,6 +17,7 @@ import ManageCategory from "./admin/ManageCategory";
 import UpdateCategory from "./admin/UpdateCategory";
 import UpdateOrder from "./admin/UpdateOrder";
 import UpdateAdmin from "./user/UpdateAdmin";
+import UpdateUserInfo from "./user/UpdateUserInfo";
 
 import Cart from "./core/Cart";
 import Payment from "./core/Payment";
@@ -32,6 +33,7 @@ export default function Routes() {
         <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
         <PrivateRoute path="/cart" exact component={Cart} />
         <PrivateRoute path="/payment" exact component={Payment} />
+        <PrivateRoute path="/user/:userId" exact component={UpdateUserInfo} />
 
         <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
         <AdminRoute

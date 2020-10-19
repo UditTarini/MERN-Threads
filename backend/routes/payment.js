@@ -9,7 +9,7 @@ const {
   getToken,
 } = require("../controllers/payment");
 
-router.post("/payment/stripe", isSignedIn, isAuthenticated, stripePayment);
+router.post("/payment/stripe", stripePayment);
 
 router.param("userId", getUserById);
 

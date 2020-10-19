@@ -17,7 +17,7 @@ exports.stripePayment = (req, res) => {
       stripe.charges
         .create(
           {
-            amount: totCost * 100,
+            amount: parseInt(totCost),
             currency: "inr",
             customer: customer.id,
             receipt_email: token.email,
