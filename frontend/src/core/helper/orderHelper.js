@@ -11,6 +11,10 @@ export const createOrder = (userId, token, orderData) => {
     body: JSON.stringify({order: orderData}),
   })
     .then((resp) => {
+      var existing = JSON.parse(localStorage.getItem("jwt"));
+      existing.user.purchases.push(orderData.products);
+
+      localStorage.setItem("jwt", JSON.stringify(existing));
       return resp.json();
     })
     .catch((err) => console.log(err));

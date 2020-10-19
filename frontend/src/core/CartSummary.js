@@ -1,11 +1,7 @@
 import React, {useState} from "react";
 import {useEffect} from "react";
 import {isAuthenticated} from "../auth/helper";
-import {cartEmpty, loadCartItems} from "./helper/cartHelper";
 import {Link} from "react-router-dom";
-import StripeCheckout from "react-stripe-checkout";
-import {base_route} from "../backend";
-import {createOrder} from "./helper/orderHelper";
 
 const CartSummary = ({
   products,

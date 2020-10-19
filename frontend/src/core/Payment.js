@@ -8,6 +8,8 @@ import {createOrder} from "./helper/orderHelper";
 import {isAuthenticated} from "../auth/helper";
 import DropIn from "braintree-web-drop-in-react";
 import {getMeToken, braintreePayment} from "./helper/paymentHelper";
+import {Redirect} from "react-router-dom";
+import {stripePayment} from "./helper/paymentHelper";
 
 export default function Payment() {
   const [totCost, settotCost] = useState("");
@@ -32,6 +34,7 @@ export default function Payment() {
     getToken(userId, token);
   }, [reload]);
 
+  // for braintree
   const getToken = (userId, token) => {
     getMeToken(userId, token).then((info) => {
       if (info.error) {
@@ -63,6 +66,7 @@ export default function Payment() {
     );
   };
 
+  // for braintree
   const onPurchase = () => {
     setInfo({loading: true});
     let nonce;
@@ -84,7 +88,7 @@ export default function Payment() {
           };
           createOrder(userId, token, orderData);
 
-          // cartEmpty();
+          cartEmpty();
         })
         .catch((err) => {
           setInfo({loading: false, success: false});
@@ -92,26 +96,36 @@ export default function Payment() {
     });
   };
 
-  const makePayment = (token, userId) => {
+  // for stripe
+  const makePayment = (token) => {
     const body = {
       token,
       totCost,
     };
-    const headers = {
-      "Content-type": "application/json",
-    };
-    return fetch(`${base_route}/payment`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(body),
-    })
+    stripePayment(body)
+      // const headers = {
+      //   "Content-type": "application/json",
+      // };
+      // return fetch(`${base_route}/payment/stripe`, {
+      //   method: "POST",
+      //   headers,
+      //   body: JSON.stringify(body),
+      // })
       .then((resp) => {
-        // console.log(resp);
-        // createOrder(userId,token,orderData);
-        cartEmpty();
+        console.log(resp);
 
-        const {status} = resp;
+        setInfo({...info, success: resp.paid, loading: false});
+
+        const orderData = {
+          products: products,
+          transaction_id: resp.id,
+          amount: resp.amount,
+        };
+
+        createOrder(userId, isAuthenticated().auth_token, orderData);
+        cartEmpty();
       })
+
       .catch((err) => console.log(err));
   };
 
@@ -123,7 +137,7 @@ export default function Payment() {
       {braintreeDropIn()}
 
       <StripeCheckout
-        stripeKey="pk_test_51GiDxIAimpSUIKJUQE4a9BXoszFV3j2VfNgLKuVJH8ZJ5wPgI4Aaa8IQh4hPZGb2RyvqLJNudTPzEGX8ypea617h00ElEDA1UJ"
+        stripeKey={process.env.REACT_APP_PUBLISHABLE_KEY}
         token={makePayment}
         amount={totCost * 100}
         name="Pay Securely"
@@ -135,6 +149,7 @@ export default function Payment() {
           Pay with stripe
         </button>
       </StripeCheckout>
+      {info.success && <Redirect to="/" />}
     </div>
   );
 }
