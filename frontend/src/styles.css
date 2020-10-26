@@ -166,10 +166,18 @@ input:hover {
 .order-info{
   flex-direction: column;
 }
-.ml-4{
+.order-info .ml-4{
   margin-left: 0 !important
   }
  
+}
+@media only screen and (max-width: 770px) {
+  .order-info{
+    flex-direction: column;
+  }
+  .order-info .ml-4{
+  margin-left: 0 !important
+  }
 }
 
 
