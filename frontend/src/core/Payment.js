@@ -103,17 +103,7 @@ export default function Payment() {
       totCost,
     };
     stripePayment(body)
-      // const headers = {
-      //   "Content-type": "application/json",
-      // };
-      // return fetch(`${base_route}/payment/stripe`, {
-      //   method: "POST",
-      //   headers,
-      //   body: JSON.stringify(body),
-      // })
       .then((resp) => {
-        console.log(resp);
-
         setInfo({...info, success: resp.paid, loading: false});
 
         const orderData = {

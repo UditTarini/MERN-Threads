@@ -2,16 +2,27 @@ import React, {useState, useEffect} from "react";
 import Base from "../core/Base";
 import {isAuthenticated} from "../auth/helper";
 import {Link} from "react-router-dom";
-import {loadPurchsedItems} from "./helper/userApiCalls";
-import {SmallCard} from "../core/Components/Card";
+import {loadOrder} from "./helper/userApiCalls";
+import {OrderCard, SmallCard} from "../core/Components/Card";
 
 export default function UserDashboard() {
-  const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [loadSuccess, setloadSuccess] = useState(false);
   const [reload, setReload] = useState(false);
-  const [state, setstate] = useState([]);
+
+  const userId = isAuthenticated().user._id;
+  const token = isAuthenticated().auth_token;
 
   useEffect(() => {
-    setstate(loadPurchsedItems());
+    loadOrder(userId, token).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+      } else {
+        setOrders(data);
+      }
+    });
+
+    // setloadSuccess(true);
   }, []);
 
   const {
@@ -49,27 +60,16 @@ export default function UserDashboard() {
   return (
     <Base className="container p-5">
       {userInfo()}
-
-      <h1 className="orange-text my-5">Your purchased items</h1>
-      {products.length > 0 ? (
+      {console.log(orders)}
+      <h1 className="orange-text my-5">Your orders</h1>
+      {orders.length > 0 ? (
         <div>
-          <p className="orange-text ">
-            You have purchased {products.length}{" "}
-            {products.length > 1 ? "items" : "item"}{" "}
-          </p>
+          <h6 className="text-secondary ">
+            You have {orders.length}
+            {orders.length > 1 ? " orders" : " order"}{" "}
+          </h6>
 
-          <div className="row">
-            <div className="col-lg-8">
-              {products.map((product, index) => (
-                <SmallCard
-                  key={index}
-                  product={product}
-                  setReload={setReload}
-                  reload={reload}
-                />
-              ))}
-            </div>
-          </div>
+          <OrderCard orders={orders} />
         </div>
       ) : (
         <h5 className="heading text-secondary ">

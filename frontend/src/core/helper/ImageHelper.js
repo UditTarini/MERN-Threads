@@ -12,7 +12,7 @@ export const ImageHelper = ({product, size}) => {
         src={imageurl}
         alt="photo"
         style={{maxHeight: size, maxWidth: size}}
-        className="mb-1 rounded"
+        className=" rounded "
       />
     </div>
   );
