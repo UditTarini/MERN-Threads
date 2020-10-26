@@ -7,7 +7,7 @@ import {OrderCard, SmallCard} from "../core/Components/Card";
 
 export default function UserDashboard() {
   const [orders, setOrders] = useState([]);
-  const [loadSuccess, setloadSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [reload, setReload] = useState(false);
 
   const userId = isAuthenticated().user._id;
@@ -19,10 +19,9 @@ export default function UserDashboard() {
         console.log(data.error);
       } else {
         setOrders(data);
+        setIsLoading(false);
       }
     });
-
-    // setloadSuccess(true);
   }, []);
 
   const {
@@ -57,11 +56,24 @@ export default function UserDashboard() {
     );
   };
 
+  const load = () => {
+    return (
+      isLoading && (
+        <div className="d-flex justify-content-center">
+          <div class="spinner-border  text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      )
+    );
+  };
+
   return (
     <Base className="container p-5">
       {userInfo()}
-      {console.log(orders)}
+
       <h1 className="orange-text my-5">Your orders</h1>
+      {load()}
       {orders.length > 0 ? (
         <div>
           <h6 className="text-secondary ">
@@ -72,9 +84,11 @@ export default function UserDashboard() {
           <OrderCard orders={orders} />
         </div>
       ) : (
-        <h5 className="heading text-secondary ">
-          You have not purchased any item yet
-        </h5>
+        !isLoading && (
+          <h5 className="heading text-secondary ">
+            You have not purchased any item yet
+          </h5>
+        )
       )}
     </Base>
   );
