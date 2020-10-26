@@ -8,6 +8,7 @@ const {
   purchaseList,
 } = require("../controllers/user");
 const {isSignedIn, isAuthenticated, isAdmin} = require("../controllers/auth");
+const {getUserOrders} = require("../controllers/order");
 
 // param
 router.param("userId", getUserById);
@@ -16,6 +17,8 @@ router.param("userId", getUserById);
 
 // read route
 router.get("/user/:userId", isSignedIn, isAuthenticated, getUser);
+
+router.get("/user/orders/:userId", isSignedIn, isAuthenticated, getUserOrders);
 
 // update route
 router.put("/user/:userId", isSignedIn, isAuthenticated, updateUser);

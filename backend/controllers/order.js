@@ -45,6 +45,23 @@ exports.getAllOrders = (req, res) => {
     });
 };
 
+exports.getUserOrders = (req, res) => {
+  // {user: req.params.objectid}
+  Order.find()
+    .populate("User", "_id name")
+    .where("user")
+    .in(req.params.userId)
+
+    .exec((err, orders) => {
+      if (err) {
+        return res.status(400).json({
+          error: "No orders",
+        });
+      }
+      return res.json(orders);
+    });
+};
+
 exports.getOrderStatus = (req, res) => {
   res.json(Order.schema.path("status").enumValues);
 };
