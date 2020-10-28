@@ -3,3 +3,4 @@ backend/package-lock.json
 frontend/debug.log
 backend/.env
 frontend/.env
+frontend/.env
