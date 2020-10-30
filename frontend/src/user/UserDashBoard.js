@@ -3,7 +3,8 @@ import Base from "../core/Base";
 import {isAuthenticated} from "../auth/helper";
 import {Link} from "react-router-dom";
 import {loadOrder} from "./helper/userApiCalls";
-import {OrderCard, SmallCard} from "../core/Components/Card";
+import {OrderCard} from "../core/Components/Card";
+import Loader from "../core/Components/Loader";
 
 export default function UserDashboard() {
   const [orders, setOrders] = useState([]);
@@ -57,15 +58,7 @@ export default function UserDashboard() {
   };
 
   const load = () => {
-    return (
-      isLoading && (
-        <div className="d-flex justify-content-center">
-          <div class="spinner-border  text-warning" role="status">
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      )
-    );
+    return isLoading && <Loader />;
   };
 
   return (
